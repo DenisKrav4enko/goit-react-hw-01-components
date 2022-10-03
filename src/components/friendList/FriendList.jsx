@@ -1,36 +1,34 @@
 import React from 'react';
-import './styles.css';
+import {
+  Friends,
+  Item,
+  Status,
+  Avatar,
+  Name,
+} from './StyledComponents';
 
 const FriendList = props => {
   const {friends} = props;
 
   return (
-    <ul className='friends'>
+    <Friends>
       {friends.map(item => (
-        <li
-          key={item.id}
-          className="item"
-        >
-          {item.isOnline
-            ? <span
-              style={{ backgroundColor: '#55AB56' }}
-              className="status"
-            ></span>
-            : <span
-              style={{ backgroundColor: '#F9564C' }}
-              className="status"
-            ></span>
-          }
-          <img
-            src={item.avatar}
-            alt="User avatar"
-            width="48"
-            className="avatar"
-          />
-          <p className="name">{item.name}</p>
-        </li>
+      <Item key={item.id}>
+        {item.isOnline
+          ? <Status style={{ backgroundColor: '#55AB56' }}/>
+          : <Status style={{ backgroundColor: '#F9564C' }}/>
+        }
+        <Avatar
+          src={item.avatar}
+          alt="User avatar"
+          width="48"
+        />
+        <Name>
+          {item.name}
+        </Name>
+      </Item>
       ))}
-    </ul>
+    </Friends>
   )
 }
 

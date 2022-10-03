@@ -1,4 +1,5 @@
 import React from 'react';
+import { Wrapper } from './StyledComponents';
 import Profile from './profile/Profile';
 import userData from '../data/user.json';
 import Statistics from './statistics/Statistics';
@@ -10,18 +11,7 @@ import transactionItems from '../data/transactions.json';
 
 export const App = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 25,
-        fontSize: 40,
-        color: '#010101',
-        backgroundColor: '#E7ECF2'
-      }}
-    >
+    <Wrapper>
       <Profile userData={userData}/>
       <Statistics
         stats={stats}
@@ -29,6 +19,6 @@ export const App = () => {
       />
       <FriendList friends={friends}/>
       <TransactionHistory transactionItems={transactionItems}/>
-    </div>
+    </Wrapper>
   );
 };

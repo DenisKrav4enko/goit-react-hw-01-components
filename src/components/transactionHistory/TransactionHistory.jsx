@@ -1,31 +1,39 @@
 import React from 'react';
-import './styles.css';
+import {
+  Item,
+  TableHead,
+  ToHorizon,
+  ItemColumn,
+  TableHeadWrapper,
+  TableBodyWrapper,
+  TransactionHistoryWrapper,
+} from './StyledComponents';
 
 const TransactionHistory = props => {
   const { transactionItems } = props;
 
   return (
-    <table className="transaction-history">
-      <thead>
-        <tr className="thead-wrapper">
-          <th>Type</th>
-          <th>Amount</th>
-          <th>Currency</th>
-        </tr>
-      </thead>
-      <tbody className="tbody-wrapper">
+    <TransactionHistoryWrapper>
+      <TableHead>
+        <TableHeadWrapper>
+          <ToHorizon>Type</ToHorizon>
+          <ToHorizon>Amount</ToHorizon>
+          <ToHorizon>Currency</ToHorizon>
+        </TableHeadWrapper>
+      </TableHead>
+      <TableBodyWrapper className="tbody-wrapper">
         {transactionItems.map(item => (
-          <tr
+          <Item
             key={item.id}
             className="item"
           >
-            <td>{item.type}</td>
-            <td>{item.amount}</td>
-            <td>{item.currency}</td>
-          </tr>
+            <ItemColumn>{item.type}</ItemColumn>
+            <ItemColumn>{item.amount}</ItemColumn>
+            <ItemColumn>{item.currency}</ItemColumn>
+          </Item>
         ))}
-      </tbody>
-    </table>
+      </TableBodyWrapper>
+    </TransactionHistoryWrapper>
   )
 }
 

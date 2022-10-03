@@ -1,5 +1,12 @@
 import React from 'react';
-import './styles.css';
+import {
+  Item,
+  Title,
+  Label,
+  StatList,
+  StatisticsWrapper,
+  Percentage,
+} from './StyledComponents';
 
 const Statistics = props => {
   const {
@@ -14,29 +21,28 @@ const Statistics = props => {
   }
 
   return (
-    <section className="statistics">
+    <StatisticsWrapper>
       {title.length
-        ? <h2 className="title">{title.toUpperCase()}</h2>
+        ? <Title>{title.toUpperCase()}</Title>
         : <></>
       }
-      <ul className="stat-list">
+      <StatList>
         {stats.map(item => (
-          <li
+          <Item
             key={item.id}
             style={{ backgroundColor: getRandomColor() }}
-            className="item"
           >
-            <span className="label">
+            <Label>
               {item.label}
-            </span>
-            <span className="percentage">
+            </Label>
+            <Percentage>
               {item.percentage}
-            </span>
-          </li>
+            </Percentage>
+          </Item>
           ))
         }
-      </ul>
-    </section>
+      </StatList>
+    </StatisticsWrapper>
   )
 }
 
