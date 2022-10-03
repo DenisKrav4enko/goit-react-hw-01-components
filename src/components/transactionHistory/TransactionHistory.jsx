@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Item,
   TableHead,
@@ -36,5 +37,9 @@ const TransactionHistory = props => {
     </TransactionHistoryWrapper>
   )
 }
+
+TransactionHistory.propTypes = {
+  transactionItems: PropTypes.array
+};
 
 export default TransactionHistory;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Item,
   Title,
@@ -45,5 +46,10 @@ const Statistics = props => {
     </StatisticsWrapper>
   )
 }
+
+Statistics.propTypes = {
+  stats: PropTypes.array,
+  title: PropTypes.string,
+};
 
 export default Statistics;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Friends,
   Item,
@@ -31,5 +32,9 @@ const FriendList = props => {
     </Friends>
   )
 }
+
+FriendList.propTypes = {
+  friends: PropTypes.array
+};
 
 export default FriendList;
