@@ -1,40 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Friends,
-  Item,
-  Status,
-  Avatar,
-  Name,
-} from './StyledComponents';
+import { Friends } from './StyledComponents';
+import FriendListItem from './friendListItem/FriendListItem';
 
 const FriendList = props => {
-  const {friends} = props;
+  const { friends } = props;
 
   return (
     <Friends>
-      {friends.map(item => (
-      <Item key={item.id}>
-        {item.isOnline
-          ? <Status style={{ backgroundColor: '#55AB56' }}/>
-          : <Status style={{ backgroundColor: '#F9564C' }}/>
-        }
-        <Avatar
-          src={item.avatar}
-          alt="User avatar"
-          width="48"
+      {friends.map(item =>(
+        <FriendListItem
+          key={item.id}
+          item={item}
         />
-        <Name>
-          {item.name}
-        </Name>
-      </Item>
       ))}
     </Friends>
   )
 }
 
 FriendList.propTypes = {
-  friends: PropTypes.array
+  id: PropTypes.number,
+  item: PropTypes.object,
+  friends: PropTypes.array.isRequired
 };
 
 export default FriendList;

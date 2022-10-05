@@ -23,10 +23,7 @@ const Statistics = props => {
 
   return (
     <StatisticsWrapper>
-      {title.length
-        ? <Title>{title.toUpperCase()}</Title>
-        : <></>
-      }
+      {!!title && <Title>{title.toUpperCase()}</Title>}
       <StatList>
         {stats.map(item => (
           <Item
@@ -48,8 +45,11 @@ const Statistics = props => {
 }
 
 Statistics.propTypes = {
-  stats: PropTypes.array,
+  id: PropTypes.string,
+  stats: PropTypes.array.isRequired,
   title: PropTypes.string,
+  label: PropTypes.string,
+  percentage: PropTypes.number,
 };
 
 export default Statistics;
