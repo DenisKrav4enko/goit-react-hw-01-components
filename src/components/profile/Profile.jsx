@@ -66,7 +66,7 @@ Profile.propTypes = {
   avatar: PropTypes.string,
   username: PropTypes.string,
   location: PropTypes.string,
-  userData: PropTypes.object,
+  userData: PropTypes.object.isRequired,
   followers: PropTypes.number
 };
 
